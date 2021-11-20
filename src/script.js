@@ -1,22 +1,19 @@
-"use strict";
+
 
 // TODO - write your code here.
 
 const randomDamage = () => {
     let number = Math.floor(Math.random() * 10) + 1
-    console.log(number);
     return number;
 }
 
 const chooseOption = (opt1, opt2) => {
     let randNum = Math.round( Math.random() )
-    console.log(randNum)
     return randNum === 0 ? opt1 : opt2;
 }
 
 function attackPlayer(health){
     health = health - randomDamage();
-    console.log(health)
     return health;
 }
 
@@ -47,7 +44,7 @@ function fight(player1, player2, player1Health, player2Health){
         } else {
             player1Health = attackPlayer(player1Health)
             logHealth(player1, player1Health);
-            if(isDead(player1Health === true)){
+            if(isDead(player1Health) === true){
                 logDeath(player2, player1);
                 break;
             }
