@@ -2,10 +2,7 @@
 
 // TODO - write your code here.
 
-const randomDamage = () => {
-    let number = Math.floor(Math.random() * 10) + 1
-    return number;
-}
+const randomDamage = () => Math.floor(Math.random() * 10) + 1
 
 const chooseOption = (opt1, opt2) => {
     let randNum = Math.round( Math.random() )
@@ -13,8 +10,7 @@ const chooseOption = (opt1, opt2) => {
 }
 
 const attackPlayer = function(health){
-    health = health - randomDamage();
-    return health;
+    return health = health - randomDamage();
 }
 
 const logHealth = (player, health) => {
@@ -37,14 +33,14 @@ function fight(player1, player2, player1Health, player2Health){
         if(attacker === player1){
             player2Health = attackPlayer(player2Health);
             logHealth(player2, player2Health);
-            if(isDead(player2Health) === true){
+            if(isDead(player2Health)){
                 logDeath(player1, player2);
                 break;
             }
         } else {
             player1Health = attackPlayer(player1Health)
             logHealth(player1, player1Health);
-            if(isDead(player1Health) === true){
+            if(isDead(player1Health)){
                 logDeath(player2, player1);
                 break;
             }
